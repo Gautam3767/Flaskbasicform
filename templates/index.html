@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Information gatherer</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Information Portal</h1>
+
+    <table>
+        <tr>
+            <th>Please Enter the following information (use fake names only)</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ info.name }}</td>
+            <td>{{ info.age }}</td>
+            <td>{{ info.job_title }}</td>
+            <td>{{ info.date_created.date() }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form action="/" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+        <label for="job_title">Job Title:</label>
+        <input type="text" id="job_title" name="job_title" required><br><br>
+        <input type="submit" value="submit info">
+    </form>
+</div>
+{% endblock %}
